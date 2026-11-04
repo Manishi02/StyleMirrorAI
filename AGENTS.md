@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Architecture
+- All simulated AI calls live in src/lib/stylist-service.ts; UI depends only on its signatures so real AI can replace it later.
+- Saved looks use browser storage via src/lib/saved-looks.ts until a backend is added.
