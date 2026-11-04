@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, Check, Heart } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
@@ -256,4 +255,3 @@ function LookTabs({ looks, active, onPick }: { looks: Look[]; active: string; on
   );
 }
 
-export { Input };
