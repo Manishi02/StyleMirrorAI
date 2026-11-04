@@ -10,33 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccessoriesRouteImport } from './routes/accessories'
+import { Route as HaircutRouteImport } from './routes/haircut'
+import { Route as OccasionRouteImport } from './routes/occasion'
+import { Route as SavedRouteImport } from './routes/saved'
+import { Route as StylistRouteImport } from './routes/stylist'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccessoriesRoute = AccessoriesRouteImport.update({
+  id: '/accessories',
+  path: '/accessories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HaircutRoute = HaircutRouteImport.update({
+  id: '/haircut',
+  path: '/haircut',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OccasionRoute = OccasionRouteImport.update({
+  id: '/occasion',
+  path: '/occasion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SavedRoute = SavedRouteImport.update({
+  id: '/saved',
+  path: '/saved',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StylistRoute = StylistRouteImport.update({
+  id: '/stylist',
+  path: '/stylist',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accessories': typeof AccessoriesRoute
+  '/haircut': typeof HaircutRoute
+  '/occasion': typeof OccasionRoute
+  '/saved': typeof SavedRoute
+  '/stylist': typeof StylistRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accessories': typeof AccessoriesRoute
+  '/haircut': typeof HaircutRoute
+  '/occasion': typeof OccasionRoute
+  '/saved': typeof SavedRoute
+  '/stylist': typeof StylistRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accessories': typeof AccessoriesRoute
+  '/haircut': typeof HaircutRoute
+  '/occasion': typeof OccasionRoute
+  '/saved': typeof SavedRoute
+  '/stylist': typeof StylistRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/accessories' | '/haircut' | '/occasion' | '/saved' | '/stylist'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/accessories' | '/haircut' | '/occasion' | '/saved' | '/stylist'
+  id:
+    | '__root__'
+    | '/'
+    | '/accessories'
+    | '/haircut'
+    | '/occasion'
+    | '/saved'
+    | '/stylist'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccessoriesRoute: typeof AccessoriesRoute
+  HaircutRoute: typeof HaircutRoute
+  OccasionRoute: typeof OccasionRoute
+  SavedRoute: typeof SavedRoute
+  StylistRoute: typeof StylistRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +106,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/accessories': {
+      id: '/accessories'
+      path: '/accessories'
+      fullPath: '/accessories'
+      preLoaderRoute: typeof AccessoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/haircut': {
+      id: '/haircut'
+      path: '/haircut'
+      fullPath: '/haircut'
+      preLoaderRoute: typeof HaircutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/occasion': {
+      id: '/occasion'
+      path: '/occasion'
+      fullPath: '/occasion'
+      preLoaderRoute: typeof OccasionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/saved': {
+      id: '/saved'
+      path: '/saved'
+      fullPath: '/saved'
+      preLoaderRoute: typeof SavedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stylist': {
+      id: '/stylist'
+      path: '/stylist'
+      fullPath: '/stylist'
+      preLoaderRoute: typeof StylistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccessoriesRoute: AccessoriesRoute,
+  HaircutRoute: HaircutRoute,
+  OccasionRoute: OccasionRoute,
+  SavedRoute: SavedRoute,
+  StylistRoute: StylistRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
