@@ -20,7 +20,7 @@ export const Route = createFileRoute("/stylist")({
   component: Stylist,
 });
 
-type Msg = { role: "user" | "ai"; text: string; image?: string };
+type Msg = { role: "user" | "ai"; text: string; image?: string | undefined };
 const PROMPTS = ["What suits a heavy lehenga?", "Ideas for Mehendi and Haldi", "Minimal accessories please", "Short hair options for men"];
 
 function Stylist() {

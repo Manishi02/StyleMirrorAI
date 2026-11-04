@@ -6,8 +6,8 @@ export type SavedLook = {
   name: string;
   image: string;
   accessories: string[];
-  intensity?: string;
-  occasions?: string[];
+  intensity?: string | undefined;
+  occasions?: string[] | undefined;
   savedAt: number;
 };
 
