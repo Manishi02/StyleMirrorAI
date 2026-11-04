@@ -13,8 +13,8 @@ import { Analyzing, BeforeAfter, ChipGroup, ImageUpload } from "@/components/sty
 import { AccessoryPanel, AccessorizedPreview, accessoryLabels, emptyAccessories, type AccessoryState } from "@/components/style/AccessoryPanel";
 
 export const Route = createFileRoute("/occasion")({
-  validateSearch: (s: Record<string, unknown>): { sample?: boolean } => ({
-    sample: s.sample === true || s.sample === "true" ? true : undefined,
+  validateSearch: (s: Record<string, unknown>): { sample?: boolean | undefined } => ({
+    sample: s["sample"] === true || s["sample"] === "true" ? true : undefined,
   }),
   head: () => ({
     meta: [
@@ -58,7 +58,7 @@ function OccasionStylist() {
   useEffect(() => {
     if (step === 6 && !looks) {
       recommendHairstyles({ faceImage: face, outfitImage: outfit, occasions, prefs, accessories: accPrefs.types, instructions }).then((r) => {
-        setLooks(r); setSelected([r[0].id, r[1].id]);
+        setLooks(r); setSelected(r.slice(0, 2).map((l) => l.id));
       });
     }
   }, [step, looks]); // eslint-disable-line react-hooks/exhaustive-deps

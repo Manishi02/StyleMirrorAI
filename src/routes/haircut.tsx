@@ -75,7 +75,7 @@ function HaircutStudio() {
                 <p className="text-muted-foreground">{results[active].summary}</p>
                 <ul className="space-y-1">{results[active].why.map((w) => <li key={w}>· {w}</li>)}</ul>
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <Button variant="rose" onClick={() => { saveLook({ id: `${results[active].id}-${Date.now()}`, name: results[active].name, image: results[active].image, accessories: [] }); toast.success("Haircut saved"); }}><Heart /> Save</Button>
+                  <Button variant="rose" onClick={() => { const r = results[active]!; saveLook({ id: `${r.id}-${Date.now()}`, name: r.name, image: r.image, accessories: [] }); toast.success("Haircut saved"); }}><Heart /> Save</Button>
                   <Button variant="soft" onClick={() => setPhase("input")}><RotateCcw /> Try another</Button>
                 </div>
               </div>

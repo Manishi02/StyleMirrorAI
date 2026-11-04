@@ -41,7 +41,7 @@ export async function stylistReply(message: string, turn: number): Promise<strin
   await wait(1100);
   const m = message.toLowerCase();
   if (m.includes("men") || m.includes("short")) return "For shorter hair, a textured crop or taper keeps it sharp. Ask the Haircut Studio for side-by-side previews.";
-  if (m.includes("accessor")) return REPLIES[3];
-  if (m.includes("mehendi") || m.includes("haldi")) return REPLIES[2];
-  return REPLIES[turn % REPLIES.length];
+  if (m.includes("accessor")) return REPLIES[3]!;
+  if (m.includes("mehendi") || m.includes("haldi")) return REPLIES[2]!;
+  return REPLIES[turn % REPLIES.length]!;
 }
