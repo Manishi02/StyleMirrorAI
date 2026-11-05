@@ -1,4 +1,4 @@
-# Bridal Braid Mirror
+# StyleMirrorAI
 
 Project: StyleMirror AI
 
